@@ -1,0 +1,15 @@
+.home-container {
+    background-image: url('./image5.jpg'); /* Path relative to the CSS file */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .home-content {
+    text-align: center;
+    color: #ffffff; /* Set text color to white for better readability */
+  }
+  
