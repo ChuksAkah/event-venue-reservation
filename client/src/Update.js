@@ -52,8 +52,8 @@ function Update() {
       />
 
       <button
-        onClick={() => {
-          axios
+        onClick={async () => {
+          await axios
             .post("http://localhost:8000/api/update", {
               username: user.username,
               ...credentials,

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios"; // Import Axios for making HTTP requests
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Booking = () => {
-  // Define state variables to store form data
   const [formData, setFormData] = useState({
     name: "",
     username: "",
@@ -17,30 +16,17 @@ const Booking = () => {
 
   const navigate = useNavigate();
 
-  // Define a function to handle form submission
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevents the default form submission behavior
+    event.preventDefault();
 
     try {
-      // console.log("Form data:", formData);
-      // Send a POST request to the backend API endpoint using Axios
       const response = await axios.post(
         "http://localhost:8000/api/booking",
         formData
       );
 
       navigate("/thanks");
-
-      // // Check if the request was successful
-      // if (response.status === 200) {
-      //   // Display a success message
-      //   alert("Thank you for booking a venue!");
-      // } else {
-      //   // Display an error message
-      //   alert("Failed to submit the form. Please try again later.");
-      // }
     } catch (error) {
-      // Handle network errors
       console.error("Network error:", error);
       alert(
         "Failed to submit the form due to a network error. Please try again later."
@@ -48,7 +34,6 @@ const Booking = () => {
     }
   };
 
-  // Define a function to handle changes in form fields
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevState) => ({
@@ -57,7 +42,6 @@ const Booking = () => {
     }));
   };
 
-  // Render the booking form
   return (
     <div className="main-box">
       <form onSubmit={handleSubmit}>

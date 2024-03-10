@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 import Thanks from "./Thanks";
 import Dashboard from "./Dashboard";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Loading from "./LoadingSpinner";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -31,28 +31,30 @@ function App() {
   };
 
   useEffect(() => {
-    setLoading(true);
-    if (localStorage.getItem("token") === null) {
-      setLoading(false);
-    
-      return;
-    }
-    if (userData == null) {
-      axios
-        .post("http://localhost:8000/api/get-user-data", {
-          token: localStorage.getItem("token"),
-        })
-        .then((response) => {
-     
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+  
+        if (localStorage.getItem("token") === null) {
+          setLoading(false);
+          return;
+        }
+  
+        if (!userData || userData === null) {
+          const response = await axios.post("http://localhost:8000/api/get-user-data", {
+            token: localStorage.getItem("token"),
+          });
+  
           setUserData(response.data);
-          // console.log(response);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-          setLoading(false);
-        });
-    }
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    fetchData();
   }, []);
 
  
@@ -88,4 +90,4 @@ function App() {
   );
 }
 
-export default App;
+export default React.memo(App);

@@ -1,5 +1,4 @@
 .home-container {
-    background-image: url('./image5.jpg'); /* Path relative to the CSS file */
     background-size: cover;
     background-position: center;
     height: 100vh; /* Adjust height as needed */
