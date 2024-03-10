@@ -6,6 +6,7 @@
 ![screenshot](client/public/readme04.png)
 ![screenshot](client/public/readme05.png)
 ![screenshot](client/public/readme06.png)
+![screenshot](client/public/readme07.jpg)
 
 ## Overview
 
