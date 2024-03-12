@@ -33,13 +33,13 @@ const Search = () => {
 
   return (
     <>
-      {searchRes == true ? (
+      {searchRes === true ? (
         <>
           <h2 align="center" className="mt-4">
             Available
           </h2>
         </>
-      ) : searchRes == null ? (
+      ) : searchRes === null ? (
         <>
           <div className="main-box">
             <form onSubmit={handleSubmit}>

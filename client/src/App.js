@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 import Thanks from "./Thanks";
 import Dashboard from "./Dashboard";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Loading from "./LoadingSpinner";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -34,17 +34,20 @@ function App() {
     const fetchData = async () => {
       try {
         setLoading(true);
-  
+
         if (localStorage.getItem("token") === null) {
           setLoading(false);
           return;
         }
-  
+
         if (!userData || userData === null) {
-          const response = await axios.post("http://localhost:8000/api/get-user-data", {
-            token: localStorage.getItem("token"),
-          });
-  
+          const response = await axios.post(
+            "http://localhost:8000/api/get-user-data",
+            {
+              token: localStorage.getItem("token"),
+            }
+          );
+
           setUserData(response.data);
         }
       } catch (error) {
@@ -53,11 +56,10 @@ function App() {
         setLoading(false);
       }
     };
-  
-    fetchData();
-  }, []);
 
- 
+    fetchData();
+  });
+
   if (loading) {
     return <Loading />;
   }
