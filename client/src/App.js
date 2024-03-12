@@ -58,7 +58,7 @@ function App() {
     };
 
     fetchData();
-  });
+  }, []);
 
   if (loading) {
     return <Loading />;
