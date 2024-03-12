@@ -59,11 +59,12 @@ This repository contains the source code for Event Venue Reservation, a web appl
    npm install
    ```
 
-4. Install backend dependencies:
+4. Install backend dependencies & generate API_KEY:
 
    ```bash
    cd server
    composer install
+   php artisan key:generate
    ```
 
 ## Configuration
@@ -79,8 +80,6 @@ This repository contains the source code for Event Venue Reservation, a web appl
 2. Create a `.env` file and configure the environment variables:
 
    ```env
-   APP_KEY=base64:nuQ7mLD+lbSqhp/TADegnKsAbOYhstcy1uPkNoXQtz8=
-
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
    DB_PORT=3306
