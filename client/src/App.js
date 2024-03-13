@@ -21,7 +21,6 @@ import axios from "axios";
 function App() {
   let loading = useSelector((state) => state.loading);
   let userData = useSelector((state) => state.userData);
-  console.log(process.env.REACT_APP_API_URL);
   const dispatch = useDispatch();
   const setLoading = (value) => {
     dispatch({ type: "SET_LOADING", payload: value });
