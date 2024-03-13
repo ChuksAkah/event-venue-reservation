@@ -21,7 +21,7 @@ const Booking = () => {
 
     try {
       await axios.post(
-        "http://localhost:8000/api/booking",
+        `${process.env.API_URL}/api/booking`,
         formData
       );
 

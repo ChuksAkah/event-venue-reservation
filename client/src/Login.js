@@ -32,7 +32,7 @@ const Login = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:8000/api/login",
+        `${process.env.API_URL}/api/login`,
         credentials
       );
 

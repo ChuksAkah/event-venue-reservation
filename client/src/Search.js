@@ -21,7 +21,7 @@ const Search = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/search",
+        `${process.env.API_URL}/api/search`,
         searchData
       );
       setSearchRes(response.data);

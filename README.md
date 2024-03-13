@@ -69,6 +69,21 @@ This repository contains the source code for Event Venue Reservation, a web appl
 
 ## Configuration
 
+
+### Frontend
+
+1. Navigate to the `server` directory:
+
+   ```bash
+   cd client
+   ```
+
+2. Create a `.env` file and configure the environment variable:
+
+   ```env
+   API_URL = YOUR_BACKEND_URL
+   ```
+
 ### Backend
 
 1. Navigate to the `server` directory:
@@ -87,6 +102,7 @@ This repository contains the source code for Event Venue Reservation, a web appl
    DB_USERNAME=your_database_username
    DB_PASSWORD=your_database_password
    ```
+
 3. Database Migration
 
    ```bash
