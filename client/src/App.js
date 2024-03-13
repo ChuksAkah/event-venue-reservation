@@ -58,6 +58,7 @@ function App() {
     };
 
     fetchData();
+    // eslint-disable-next-line
   }, []);
 
   if (loading) {
