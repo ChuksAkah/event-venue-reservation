@@ -8,7 +8,7 @@ const Search = () => {
     bookingHours: "",
   });
 
-  const [searchRes, setSearchRes] = useState();
+  const [searchRes, setSearchRes] = useState(null);
 
   const handleChange = (e) => {
     setSearchData({
