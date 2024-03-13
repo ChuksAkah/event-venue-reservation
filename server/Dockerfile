@@ -1,34 +1,20 @@
-FROM php:8.0-apache
-
-WORKDIR /var/www/html
-
-RUN apt-get update && \
-    apt-get install -y \
-        git \
-        unzip \
-        libzip-dev \
-        libonig-dev \
-        libxml2-dev \
-        mariadb-client
-
-RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl bcmath
-
-RUN a2enmod rewrite
-
-COPY composer.lock composer.json /var/www/html/
-
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-RUN composer install --no-interaction --no-scripts
-
-COPY . /var/www/html/
-
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
-
-RUN php artisan migrate --force
-
-COPY docker/apache/default.conf /etc/apache2/sites-available/000-default.conf
-
-EXPOSE 80
-
-CMD ["apache2-foreground"]
+FROM richarvey/nginx-php-fpm:1.7.2
+ 
+COPY . .
+ 
+# Image config
+ENV SKIP_COMPOSER 1
+ENV WEBROOT /var/www/html/public
+ENV PHP_ERRORS_STDERR 1
+ENV RUN_SCRIPTS 1
+ENV REAL_IP_HEADER 1
+ 
+# Laravel config
+ENV APP_ENV production
+ENV APP_DEBUG false
+ENV LOG_CHANNEL stderr
+ 
+# Allow composer to run as root
+ENV COMPOSER_ALLOW_SUPERUSER 1
+ 
+CMD ["/start.sh"]
