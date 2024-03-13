@@ -54,7 +54,7 @@ function Update() {
       <button
         onClick={async () => {
           await axios
-            .post(`${process.env.API_URL}/api/update`, {
+            .post(`${process.env.REACT_APP_API_URL}/api/update`, {
               username: user.username,
               ...credentials,
             })

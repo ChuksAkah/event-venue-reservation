@@ -69,7 +69,6 @@ This repository contains the source code for Event Venue Reservation, a web appl
 
 ## Configuration
 
-
 ### Frontend
 
 1. Navigate to the `server` directory:
@@ -81,7 +80,7 @@ This repository contains the source code for Event Venue Reservation, a web appl
 2. Create a `.env` file and configure the environment variable:
 
    ```env
-   API_URL = YOUR_BACKEND_URL
+   REACT_APP_API_URL = YOUR_BACKEND_URL
    ```
 
 ### Backend

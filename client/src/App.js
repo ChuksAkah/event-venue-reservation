@@ -18,9 +18,10 @@ import Loading from "./LoadingSpinner";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
-function App() {  
+function App() {
   let loading = useSelector((state) => state.loading);
   let userData = useSelector((state) => state.userData);
+  console.log(process.env.REACT_APP_API_URL);
   const dispatch = useDispatch();
   const setLoading = (value) => {
     dispatch({ type: "SET_LOADING", payload: value });
@@ -42,7 +43,7 @@ function App() {
 
         if (!userData || userData === null) {
           const response = await axios.post(
-            `${process.env.API_URL}/api/get-user-data`,
+            `${process.env.REACT_APP_API_URL}/api/get-user-data`,
             {
               token: localStorage.getItem("token"),
             }

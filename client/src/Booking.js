@@ -21,10 +21,9 @@ const Booking = () => {
 
     try {
       await axios.post(
-        `${process.env.API_URL}/api/booking`,
+        `${process.env.REACT_APP_API_URL}/api/booking`,
         formData
       );
-
 
       navigate("/thanks");
     } catch (error) {

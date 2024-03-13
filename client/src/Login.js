@@ -32,7 +32,7 @@ const Login = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        `${process.env.API_URL}/api/login`,
+        `${process.env.REACT_APP_API_URL}/api/login`,
         credentials
       );
 
@@ -45,8 +45,8 @@ const Login = () => {
 
       navigate("/dashboard");
     } catch (error) {
-   //   console.error("Login error:", error);
-      setLoading(false)
+      //   console.error("Login error:", error);
+      setLoading(false);
     }
   };
 
