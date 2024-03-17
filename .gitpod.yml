@@ -1,6 +1,0 @@
-image: gitpod/workspace-mysql
-
-tasks:
-    - init: ./setup.sh
-    - before: wget https://get.symfony.com/cli/installer -O - | bash  
-      command: export PATH="$HOME/.symfony/bin:$PATH" && symfony server:start
